@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+
+function App(props) {
+  const subject = props.subject;
+  console.log(props);
   return (
     <div className="App">
       <header className="App-header">
@@ -9,7 +13,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-          Hello World
+          Hello, {subject}!
       </header>
     </div>
   );
