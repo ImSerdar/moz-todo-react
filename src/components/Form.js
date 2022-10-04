@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 
 function Form(props) {
+  const [name, setName] = useState("")
+
+
   //This function should prevent the default behavior of the submit event
   function handleSubmit(e) {
   e.preventDefault();
-  props.addTask("Say Hello!");
+
+  props.addTask(name);
+  setName("");
+  }
+  //This function displays and stores user input
+  function handleChange(e) {
+    setName(e.target.value);
   }
   
   return (
@@ -20,6 +29,8 @@ function Form(props) {
         className="input input__lg"
         name="text"
         autoComplete="off"
+        value={name}
+        onChange={handleChange}
       />
       <button type="submit" className="btn btn__primary btn__lg">
         Add
